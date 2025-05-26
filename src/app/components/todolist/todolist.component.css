@@ -1,0 +1,12 @@
+/* select the paragraph by its id and style it  */
+
+
+#paragraph {
+  color: blue;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+  border: 20px groove red;
+    padding: 20px;
+
+}

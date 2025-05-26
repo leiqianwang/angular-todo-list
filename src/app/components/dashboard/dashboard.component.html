@@ -1,0 +1,25 @@
+<p>dashboard works!</p>
+
+
+<p>Look at My Chidren:</p>
+
+
+<div>
+    <!-- *ngFor - great for Dynamically RENDERING multiple components-->
+      <app-todolist *ngFor = "let item of todolist" [todo]="item" />
+
+</div>
+
+<!-- *ngIf - great for CONDITIONAL RENDERING -->
+
+<p>
+    <!-- *ngIf - great for CONDITIONAL RENDERING -->
+    <!-- If the todolist is empty, display this message -->
+    <span *ngIf="todolist.length === 0">No todos available.</span>
+    <!-- If the todolist is not empty, display this message -->
+    <span *ngIf="todolist.length > 0">You have {{ todolist.length }} todos.</span>
+</p>
+
+<!-- EVENT BINDING - attaching a function that runs when you (click) this button -->
+ <button (click)="addTodo()">Add Todo</button>
+<p>Click the button to add a new todo item.</p>
