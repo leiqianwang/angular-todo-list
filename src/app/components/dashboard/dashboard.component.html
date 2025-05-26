@@ -1,4 +1,4 @@
-<p>dashboard works!</p>
+<p class="display-4 fw-bold mb-4">Welcome!</p>
 
 <p>
     <!-- *ngIf - great for CONDITIONAL RENDERING -->
@@ -14,13 +14,15 @@
 <!-- PROPERTY BINDING - using the value of a variable in the TS to determine the value
  of an element's attribute -->
 
- <p (mouseover)="isHovered(true)" (mouseout)="isHovered(false)" 
- [style.color]="color">
- You have {{ todoService.todolist.length }} todo items!
- </p>
+<p *ngIf="todoService.todolist.length === 0">No todos available.</p>
+ 
 <div>
     
-    <button (click)="toggleHideDiv()">Toggle Div</button>
-    <p [hidden]="hideDiv">Hi, I'm a div that was on and off to show.</p>
+    <button (click)="toggleHideDiv()">Toggle to See TodoList</button>
+    <p [hidden]="hideDiv"
+    (mouseover)="isHovered(true)" (mouseout)="isHovered(false)"
+    [style.color]="color"
+    class="fs-3 fw-semibold mt-3"> 
+        You have {{ todoService.todolist.length }} todo items!</p>
     
  </div>
