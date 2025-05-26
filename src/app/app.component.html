@@ -6,5 +6,25 @@
 
 
 <!--Statically render the Dashboard component-->
-<app-dashboard />
-<router-outlet />
+<!-- <app-dashboard />
+<router-outlet /> -->
+
+<app-nav />
+
+ <router-outlet></router-outlet>
+
+
+
+ <style>
+  nav a {
+    text-decoration: none;
+    color: blue;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+</style>
+<!-- This is where the routed components will be displayed -->

@@ -1,1 +1,21 @@
-<p id="paragraph">{{ todo }}</p>
+
+<h3>Your Todo List:</h3>
+
+
+<ul>
+  <li *ngFor="let todo of todoService.todolist; let i = index">
+
+    <p id="paragraph"> {{ todo }} </p>
+      <button (click)="todoService.removeTodo(i)">Remove</button>
+  </li>
+</ul>
+
+
+
+<!-- EVENT BINDING - attaching a function that runs when you (click) this button -->
+ <input [(ngModel)]="todoService.newTodo" placeholder="Enter a new todo" />  
+ <button (click)="todoService.addTodo()">Add Todo</button>
+<p>Click the button to add a new todo item.</p>
+
+
+

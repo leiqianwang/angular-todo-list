@@ -1,35 +1,36 @@
 import { Component } from '@angular/core';
-import { TodolistComponent } from '../todolist/todolist.component';
-import { CommonModule } from '@angular/common'; //CommonModule is needed for Angular directives like ngIf, ngFor, etc.
+import { ServiceComponent } from '../service/service.component';
+import { CommonModule} from '@angular/common'; //CommonModule is needed for Angular directives like ngIf, ngFor, etc.
+import { FormsModule } from '@angular/forms'; //FormsModule is needed for two-way data binding with ngModel
+
+
+
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, TodolistComponent], //Parent DashboardComponent will render child, we gotta import
+  imports: [CommonModule, FormsModule], //Parent DashboardComponent will render child, we gotta import
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-
+ 
+   constructor(public todoService: ServiceComponent) { } //Injecting the service to use its methods and properties
   //A component's TS file stores values and functions that affect the view and app behavior
 
-  //Defining an Array that we'll use to render multiple child components
-  todolist:string[] = [
-    'Buy groceries',
-    'Walk the dog',
-    'Read a book',
-    'Complete Angular project',
-    'Exercise for 30 minutes',
-    'Call a friend',
-    'Prepare dinner',
-    'Organize workspace',
-    'Plan next week\'s tasks',
-    'Watch a movie'
-  ]
+  
 
-  //Difining a function that runs when the button is clicked
-  addTodo() {
-    //Adding a new todo item to the todolist array
-    this.todolist.push('New Todo Item');
+  //Defining a variable to toggle the hidden div on and off
+  hideDiv:boolean = false;
+
+  toggleHideDiv() {
+    //Toggling the boolean value to show or hide the div
+    this.hideDiv = !this.hideDiv;
+  }
+
+  color:string = 'black'; //Defining a variable to hold the color value
+    
+  isHovered(isEnter: boolean){
+    this.color = isEnter ? 'blue' : 'black'; //Changing the color based on hover state
   }
 
 }
